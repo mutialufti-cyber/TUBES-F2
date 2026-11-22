@@ -1315,8 +1315,39 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("form-wa");
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        const nama = form.querySelector('[name="nama"]').value.trim();
+        const subjek = form.querySelector('[name="subjek"]').value.trim();
+        const pesan = form.querySelector('[name="pesan"]').value.trim();
+
+        const nomorWhatsApp = "6282129999857";
+
+        const isiPesan =
+            "Halo Kopi Susu by Premium Beans Indonesia!\n\n" +
+            "Nama: " + nama + "\n" +
+            "Subjek: " + subjek + "\n" +
+            "Pesan: " + pesan;
+
+        const url = "https://wa.me/" + nomorWhatsApp +
+                    "?text=" + encodeURIComponent(isiPesan);
+
+        window.open(url, "_blank");
+
+    }, true);
+
+});
+</script>
 
 </body>
-
 </html>
